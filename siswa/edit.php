@@ -17,7 +17,7 @@ $r = mysqli_fetch_assoc($result)
 ?>
 
             <div class="card-body">
-                <form action="?m=siswa&s=save" method="post">
+                <form action="?m=siswa&s=update" method="post">
                     <div class="mb-3">
                         <input type="number" name="nis" value="<?= $r['nis']; ?>" class="form-control" placeholder="Nomor Induk Siswa" required autofocus>
                     </div>
