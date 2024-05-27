@@ -1,12 +1,12 @@
 <?php
 if (isset($_POST['simpan'])) {
     require_once('config.php');
-    $nis = $_POST['nis'];
+    $nip = $_POST['nip'];
     $nama = $_POST['nama'];
     $jk = $_POST['jk'];
     $tempat_lahir = $_POST['tempat_lahir'] == '' ? 0 : $_POST['tempat_lahir'];
     $tanggal_lahir = $_POST['tanggal_lahir'] == '' ? 0 : $_POST['tanggal_lahir'];
-    $kelas_id = $_POST['kelas_id'];
+    $telepon = $_POST['telepon'];
 
     $acak = rand();
     $namafile = $_FILES ['foto']['name'];
@@ -15,20 +15,20 @@ if (isset($_POST['simpan'])) {
     $ekstensi = array('png', 'jpg', 'jpeg', 'webp', 'gif', 'svg');
 
     if (!file_exists($_FILES['foto']['tmp_name']) || !is_uploaded_file($_FILES['foto']['tmp_name'])) {
-        $sql = "INSERT INTO siswa SET nis='$nis', nama='$nama', jk='$jk', tempat_lahir='$tempat_lahir', tanggal_lahir='$tanggal_lahir', kelas_id='$kelas_id'";
+        $sql = "INSERT INTO guru SET nip='$nip', nama='$nama', jk='$jk', tempat_lahir='$tempat_lahir', tanggal_lahir='$tanggal_lahir', telepon='$telepon'";
     }else {
         if (!in_array($akhiran, $ekstensi)) {
-            header("location: index.php?m=siswa");
+            header("location: index.php?m=guru");
             echo '<script language="JavaScript">';
             echo 'alert("Akhiran file Anda, TIDAK DIIZINKAN!")';
             echo '</script>';
         }else {
             if ($ukuran < 1010000020) {
                 $nmfile = $acak . '_' . $namafile;
-                move_uploaded_file($_FILES['foto']['tmp_name'], 'siswa/foto/'.$nmfile);
-                $sql = "INSERT INTO siswa SET nis='$nis', nama='$nama', jk='$jk', tempat_lahir='$tempat_lahir', tanggal_lahir='$tanggal_lahir', kelas_id='$kelas_id', foto='$nmfile'";
+                move_uploaded_file($_FILES['foto']['tmp_name'], 'guru/foto/'.$nmfile);
+                $sql = "INSERT INTO guru SET nip='$nip', nama='$nama', jk='$jk', tempat_lahir='$tempat_lahir', tanggal_lahir='$tanggal_lahir', telepon='$telepon', foto='$nmfile'";
         } else {
-            header("location: index.php?m=siswa");
+            header("location: index.php?m=guru");
             echo '<script language="JavaScript">';
             echo 'alert("Ukuran file Anda, TERLALU BESAR!")';
             echo '</script>';
@@ -38,9 +38,9 @@ if (isset($_POST['simpan'])) {
 
     $result = mysqli_query($con, $sql);
     if ($result) {
-        header('location: index.php?m=siswa&s=view');
+        header('location: index.php?m=guru&s=view');
     } else {
-        include "index.php?m=siswa&s=view";
+        include "index.php?m=guru&s=view";
         echo '<script language="JavaScript">';
             echo 'alert("Data Gagal Ditambahkan.")';
         echo '</script>';

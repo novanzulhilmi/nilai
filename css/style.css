@@ -1,0 +1,17 @@
+.card-body {
+    overflow: auto;
+}
+
+.card > .card-header{
+    color: black !important;
+}
+
+.card > .card-header > .col-4 > a.btn {
+    background-color: blue !important;
+    border: 1px solid transparent !important;
+}
+
+.card > .card-header > .col-4 > a.btn > b {
+    background-color: black !important;
+    border: 1px solid transparent !important;
+}

@@ -2,19 +2,19 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header row">
-                <div class="card-title h3 col-8">Tambah Siswa</div>
+                <div class="card-title h3 col-8">Tambah Guru</div>
                 <div class="col-4">
-                    <a href="?m=siswa&s=view" class="btn btn-lg btn-primary float-end">Kembali</a>
+                    <a href="?m=guru&s=view" class="btn btn-lg btn-primary float-end">Kembali</a>
                 </div>
             </div>
 
             <div class="card-body">
-                <form action="?m=siswa&s=save" method="post" enctype="multipart/form-data">
+                <form action="?m=guru&s=save" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <input type="number" name="nis" class="form-control" placeholder="Nomor Induk Siswa" required autofocus>
+                        <input type="number" name="nip" class="form-control" placeholder="Nomor Induk Guru" required autofocus>
                     </div>
                     <div class="mb-3">
-                        <input type="text" name="nama" class="form-control" placeholder="Nama Siswa" required>
+                        <input type="text" name="nama" class="form-control" placeholder="Nama Lengkap" required>
                     </div>
                     <div class="form-check">
                         <label for="">Jenis Kelamin : </label> <br>
@@ -33,17 +33,7 @@
                         <input type="text" placeholder="Tanggal Lahir" name="tanggal_lahir" class="form-control" onblur="(this.type='text')" onfocus="(this.type='date')" required>
                     </div>
                     <div class="mb-3">
-                        <select name="kelas_id" class="form-control" required>
-                            <option>Kelas</option>
-                            <?php
-                            require_once ('config.php');
-                            $sql = "SELECT * FROM kelas";
-                            $result = mysqli_query($con, $sql);
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                echo "<option value='$row[id]'>$row[kelas]</option>";
-                            }
-                            ?>
-                        </select>
+                        <input type="text" name="telepon" class="form-control" placeholder="Telepon" required>
                     </div>
                     <div class="mb-3">
                         <label for="">Foto Profil :</label>
@@ -69,10 +59,10 @@ if (isset($_POST['simpan'])) {
     $tanggal_lahir = $_POST['tanggal_lahir'];
     $kelas_id = $_POST['kelas_id'];
 
-    $sql = "INSERT INTO siswa (nis, nama, jk, tempat_lahir, tanggal_lahir, kelas_id) VALUES ('$nis', '$nama', '$jk', '$tempat_lahir', '$tanggal_lahir', '$kelas_id')";
+    $sql = "INSERT INTO guru (nis, nama, jk, tempat_lahir, tanggal_lahir, kelas_id) VALUES ('$nis', '$nama', '$jk', '$tempat_lahir', '$tanggal_lahir', '$kelas_id')";
 
     if (mysqli_query($config, $sql)) {
-        header('Location: ?m=siswa&s=view');
+        header('Location: ?m=guru&s=view');
     } else {
         echo 'Error: ' . mysqli_error($config);
     }
