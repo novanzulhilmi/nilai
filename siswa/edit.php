@@ -7,19 +7,18 @@
                     <a href="?m=siswa&s=view" class="btn btn-lg btn-primary float-end">Kembali</a>
                 </div>
             </div>
-
 <?php
 include_once('config.php');
-$id = $_GET['id'];
+$id  = $_GET['id'];
 $sql = "SELECT * FROM siswa WHERE id='$id'";
 $result = mysqli_query($con, $sql);
-$r = mysqli_fetch_assoc($result)
+$r=mysqli_fetch_assoc($result);
 ?>
 
             <div class="card-body">
-                <form action="?m=siswa&s=update" method="post">
+                <form action="?m=siswa&s=update" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <input type="number" name="nis" value="<?= $r['nis']; ?>" class="form-control" placeholder="Nomor Induk Siswa" required autofocus>
+                        <input type="text" name="nis" value="<?= $r['nis']; ?>" class="form-control" placeholder="Nomor Induk Siswa" required>
                     </div>
                     <div class="mb-3">
                         <input type="text" name="nama" value="<?= $r['nama']; ?>" class="form-control" placeholder="Nama Siswa" required>
@@ -34,10 +33,10 @@ $r = mysqli_fetch_assoc($result)
                     </div>
                     <br>
                     <div class="mb-3">
-                        <input type="text" name="tempat_lahir" value="<?= $r['tempat_lahir']; ?>" class="form-control" placeholder="Tempat Lahir" required>
+                        <input type="text" name="tempat_lahir" value="<?= $r['tempat_lahir']; ?>" class="form-control" placeholder="Tempat Lahir (isi dengan nama Kabupaten/Kota tempat di lahirkan)">
                     </div>
                     <div class="mb-3">
-                        <input type="text" placeholder="Tanggal Lahir" name="tanggal_lahir" value="<?= $r['tanggal_lahir']; ?>" class="form-control" onblur="(this.type='text')" onfocus="(this.type='date')" required>
+                        <input type="date" name="tanggal_lahir" value="<?= $r['tanggal_lahir']; ?>" class="form-control" placeholder="Tanggal Lahir">
                     </div>
                     <div class="mb-3">
                         <select name="kelas_id" class="form-control" required>
@@ -57,13 +56,13 @@ $r = mysqli_fetch_assoc($result)
                         </select>
                     </div>
                     <div class="mb-3">
-                        <img src="siswa/foto/<?= $r['foto']; ?>" alt="Gambar tidak ada" height="330px" title="Foto Sebelumnya">
+                        <img src="siswa/foto/<?= $r['foto']; ?>" alt="Gambar Tidak Ada" height="330px" title="Foto Sebelumnya">
                     </div>
                     <div class="mb-3">
                         <label for="">Masukan Foto (Jika diganti)</label>
                         <input type="file" name="foto" class="form-control" accept="image/*">
                     </div>
-                    
+
                     <div class="mb-3">
                         <input type="hidden" name="id" value="<?= $r['id']; ?>">
                         <input type="hidden" name="old_foto" value="<?= $r['foto']; ?>">

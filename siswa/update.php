@@ -28,7 +28,7 @@ if (isset($_POST['update'])) {
             if ($ukuran < 10000000) {
                 $nmfile = $acak . '_' . $namafile;
                 move_uploaded_file($_FILES['foto']['tmp_name'], 'siswa/foto/'.$nmfile);
-                $sql = "UPDATE siswa SET nip='$nis', nama='$nama', jk='$jk', tempat_lahir='$tempat_lahir', tanggal_lahir='$tanggal_lahir', kelas_id='$kelas_id', foto='$nmfile' WHERE id='$id'";
+                $sql = "UPDATE siswa SET nis='$nis', nama='$nama', jk='$jk', tempat_lahir='$tempat_lahir', tanggal_lahir='$tanggal_lahir', kelas_id='$kelas_id', foto='$nmfile' WHERE id='$id'";
                 unlink("siswa/foto/" . $old_foto);
             } else {
                 include("index.php?m=siswa");
