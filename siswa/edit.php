@@ -56,9 +56,17 @@ $r = mysqli_fetch_assoc($result)
                         ?>
                         </select>
                     </div>
+                    <div class="mb-3">
+                        <img src="siswa/foto/<?= $r['foto']; ?>" alt="Gambar tidak ada" height="330px" title="Foto Sebelumnya">
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Masukan Foto (Jika diganti)</label>
+                        <input type="file" name="foto" class="form-control" accept="image/*">
+                    </div>
                     
                     <div class="mb-3">
                         <input type="hidden" name="id" value="<?= $r['id']; ?>">
+                        <input type="hidden" name="old_foto" value="<?= $r['foto']; ?>">
                         <input type="reset" class="btn btn-secondary">&nbsp;
                         <input type="submit" value="Update" name="update" class="btn btn-primary">
                     </div>

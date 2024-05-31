@@ -11,10 +11,10 @@
     
 </head>
 <body class="bg-light">
-  <nav class="navbar navbar-expand-lg bg-info-subtle">
+  <nav class="navbar bg-dark navbar-expand-lg bg-info-subtle" data-bs-theme="dark">
     <div class="container-fluid">
       <a class="navbar-brand" href=".">
-        <img src="gambar/Lzy-logo.png"alt="Bootstrap" width="70" height="auto"> <b>WebPro</b>
+        <img src="gambar/WhatsApp Image 2024-05-28 at 10.22.16_f117c34e.jpg"alt="Bootstrap" width="74px" height="auto"> <b class="ms-2">WebPro</b>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -22,31 +22,30 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href=".">Home</a>
+            <a class="nav-link active fs-5" aria-current="page" href=".">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="?m=kelas">Kelas</a>
+            <a class="nav-link fs-5" href="?m=kelas">Kelas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="?m=siswa">Siswa</a>
+            <a class="nav-link fs-5" href="?m=siswa">Siswa</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="?m=mapel">Mata Pelajaran</a>
+            <a class="nav-link fs-5" href="?m=mapel">Mata Pelajaran</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="?m=guru">Guru</a>
+            <a class="nav-link fs-5" href="?m=guru">Guru</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link fs-5 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Nilai
             </a>
-
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="?m=grmp">Guru - Mapel</a>
               <a class="dropdown-item" href="?m=grkl">Guru - Kelas</a>
               <a class="dropdown-item" href="?m=nilai">Nilai</a>
             </div>
-          </li>
+        </li>
         </ul>
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

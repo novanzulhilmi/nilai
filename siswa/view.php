@@ -43,7 +43,7 @@
                                     <td> <img style="object-fit:cover; aspect-ratio: 1/1;" width="120px" heigth="auto" src="siswa/foto/'.$foto.'" alt="Undefined"> </td>
                                     <td>
                                         <a href="?m=siswa&s=edit&id='.$r['sid'].'" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="?m=siswa&s=delete&id='.$r['sid'].'" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin siswa akan dihapus?, yakin kah???\')">Hapus</a>
+                                        <a href="?m=siswa&s=delete&id='.$r['sid'].'" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin siswa akan dihapus?, yakin nihhh???\')">Hapus</a>
                                     </td>
                                 </tr>';
                                 $no++;
